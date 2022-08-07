@@ -7,9 +7,10 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+from botoes import *
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(345, 512)
@@ -30,6 +31,7 @@ class Ui_MainWindow(object):
         self.oito = QtWidgets.QPushButton(self.centralwidget)
         self.oito.setGeometry(QtCore.QRect(90, 200, 71, 61))
         self.oito.setObjectName("oito")
+
         self.Multiplicar = QtWidgets.QPushButton(self.centralwidget)
         self.Multiplicar.setGeometry(QtCore.QRect(250, 200, 71, 61))
         self.Multiplicar.setObjectName("Multiplicar")
@@ -106,10 +108,26 @@ class Ui_MainWindow(object):
         self.virgula.raise_()
         self.pushButton_20.raise_()
         self.Visor.raise_()
+
+        self.nove.clicked.connect(lambda: self.retorno_visor(algarismo9()))
+        self.oito.clicked.connect(lambda:self.retorno_visor(algarismo8()))
+        self.sete.clicked.connect(lambda: self.retorno_visor(algarismo7()))
+        self.seis.clicked.connect(lambda: self.retorno_visor(algarismo6()))
+        self.cinco.clicked.connect(lambda: self.retorno_visor(algarismo5()))
+        self.quatro.clicked.connect(lambda: self.retorno_visor(algarismo4()))
+        self.tres.clicked.connect(lambda: self.retorno_visor(algarismo3()))
+        self.dois.clicked.connect(lambda: self.retorno_visor(algarismo2()))
+        self.um.clicked.connect(lambda: self.retorno_visor(algarismo1()))
+        self.pushButton_17.clicked.connect(lambda: self.retorno_visor(algarismo0()))
+
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retorno_visor(self,n):
+        self.Visor.display(n)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -134,6 +152,7 @@ class Ui_MainWindow(object):
         self.igual.setText(_translate("MainWindow", "="))
         self.virgula.setText(_translate("MainWindow", ","))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
+
 
 
 if __name__ == "__main__":

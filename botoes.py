@@ -23,6 +23,7 @@ def algarismo7():
     return 7
 
 def algarismo8():
+    print("*")
     return 8
 
 def algarismo9():
@@ -36,6 +37,8 @@ def sinaldesubtracao():
 
 def sinaldedivisao():
     return "/"
+
+
 
 def sinaldemultiplicacao():
     return "*"
