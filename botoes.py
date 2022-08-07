@@ -27,3 +27,15 @@ def algarismo8():
 
 def algarismo9():
     return 9
+
+def sinaldesoma():
+    return "+"
+
+def sinaldesubtracao():
+    return "-"
+
+def sinaldedivisao():
+    return "/"
+
+def sinaldemultiplicacao():
+    return "*"
