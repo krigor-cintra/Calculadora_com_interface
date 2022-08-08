@@ -120,6 +120,8 @@ class Ui_MainWindow(object):
         self.um.clicked.connect(lambda: self.retorno_visor(algarismo1()))
         self.pushButton_17.clicked.connect(lambda: self.retorno_visor(algarismo0()))
 
+        self.igual.clicked.connect(lambda:self.retorno())
+
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -153,7 +155,8 @@ class Ui_MainWindow(object):
         self.virgula.setText(_translate("MainWindow", ","))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
 
-
+    def retorno(self):
+        print(self.Visor.value())
 
 if __name__ == "__main__":
     import sys
