@@ -12,7 +12,7 @@ from tratamento_dados import valor_digitado
 
 class Ui_MainWindow(object):
     valordereserva = ""
-    historico= " "
+    historico= ""
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName("MainWindow")
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
 
 
-        self.igual.clicked.connect(lambda:self.somatoria())
+        self.igual.clicked.connect(lambda:self.atc_igual())
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -173,6 +173,14 @@ class Ui_MainWindow(object):
         print(valor1)
         self.retorno_visor(0)
         self.valordereserva=valor1
+
+    def atc_igual(self):
+        
+        valor1=self.retorno(" ")
+        self.valordereserva=str(valor1)
+        self.historico=str(self.historico)+str(self.valordereserva)+"\n"
+        self.retorno_visor(0)
+
 
 
 if __name__ == "__main__":
