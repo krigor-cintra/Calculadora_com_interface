@@ -121,6 +121,7 @@ class Ui_MainWindow(object):
         self.dois.clicked.connect(lambda: self.retorno(algarismo2()))
         self.um.clicked.connect(lambda: self.retorno(algarismo1()))
         self.pushButton_17.clicked.connect(lambda: self.retorno(algarismo0()))
+        self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
 
         self.igual.clicked.connect(lambda:self.retorno())
 
@@ -161,7 +162,7 @@ class Ui_MainWindow(object):
         x=(str(valor_digitado(int(self.Visor.value()))))
         x=x+str(n)
         self.retorno_visor(x)
-        print(x)
+        #print(x) /*Utilizado para ver como esta sendo o output dos dados*/
         return ((valor_digitado(self.Visor.value())))
 
 if __name__ == "__main__":
