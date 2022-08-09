@@ -12,6 +12,7 @@ from tratamento_dados import valor_digitado
 
 class Ui_MainWindow(object):
     valordereserva = ""
+    historico= " "
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName("MainWindow")
