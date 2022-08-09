@@ -67,9 +67,9 @@ class Ui_MainWindow(object):
         self.quatro = QtWidgets.QPushButton(self.centralwidget)
         self.quatro.setGeometry(QtCore.QRect(10, 270, 71, 61))
         self.quatro.setObjectName("quatro")
-        self.pushButton_17 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_17.setGeometry(QtCore.QRect(90, 410, 71, 61))
-        self.pushButton_17.setObjectName("pushButton_17")
+        self.zero = QtWidgets.QPushButton(self.centralwidget)
+        self.zero.setGeometry(QtCore.QRect(90, 410, 71, 61))
+        self.zero.setObjectName("pushButton_17")
         self.igual = QtWidgets.QPushButton(self.centralwidget)
         self.igual.setGeometry(QtCore.QRect(250, 410, 71, 61))
         self.igual.setObjectName("igual")
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.subtrair.raise_()
         self.seis.raise_()
         self.quatro.raise_()
-        self.pushButton_17.raise_()
+        self.zero.raise_()
         self.igual.raise_()
         self.virgula.raise_()
         self.pushButton_20.raise_()
@@ -120,10 +120,11 @@ class Ui_MainWindow(object):
         self.tres.clicked.connect(lambda: self.retorno(algarismo3()))
         self.dois.clicked.connect(lambda: self.retorno(algarismo2()))
         self.um.clicked.connect(lambda: self.retorno(algarismo1()))
-        self.pushButton_17.clicked.connect(lambda: self.retorno(algarismo0()))
+        self.zero.clicked.connect(lambda: self.retorno(algarismo0()))
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
 
-        self.igual.clicked.connect(lambda:self.retorno())
+
+        self.igual.clicked.connect(lambda:self.somatoria())
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -153,7 +154,7 @@ class Ui_MainWindow(object):
         self.subtrair.setText(_translate("MainWindow", "-"))
         self.seis.setText(_translate("MainWindow", "6"))
         self.quatro.setText(_translate("MainWindow", "4"))
-        self.pushButton_17.setText(_translate("MainWindow", "0"))
+        self.zero.setText(_translate("MainWindow", "0"))
         self.igual.setText(_translate("MainWindow", "="))
         self.virgula.setText(_translate("MainWindow", ","))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
@@ -164,6 +165,11 @@ class Ui_MainWindow(object):
         self.retorno_visor(x)
         #print(x) /*Utilizado para ver como esta sendo o output dos dados*/
         return ((valor_digitado(self.Visor.value())))
+
+    def somatoria(self):
+        valor1=self.retorno("")
+        print(valor1)
+        self.retorno_visor(0)
 
 if __name__ == "__main__":
     import sys
