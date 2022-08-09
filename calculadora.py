@@ -167,9 +167,12 @@ class Ui_MainWindow(object):
         return ((valor_digitado(self.Visor.value())))
 
     def somatoria(self):
-        valor1=self.retorno("")
+        print(self.valordereserva)
+        valor1=self.retorno(" ")
         print(valor1)
         self.retorno_visor(0)
+        self.valordereserva=valor1
+
 
 if __name__ == "__main__":
     import sys
