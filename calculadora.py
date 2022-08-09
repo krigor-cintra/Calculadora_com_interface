@@ -8,10 +8,12 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from botoes import *
+from tratamento_dados import valor_digitado
 
 class Ui_MainWindow(object):
-
+    valordereserva = ""
     def setupUi(self, MainWindow):
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(345, 512)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -109,16 +111,16 @@ class Ui_MainWindow(object):
         self.pushButton_20.raise_()
         self.Visor.raise_()
 
-        self.nove.clicked.connect(lambda: self.retorno_visor(algarismo9()))
-        self.oito.clicked.connect(lambda:self.retorno_visor(algarismo8()))
-        self.sete.clicked.connect(lambda: self.retorno_visor(algarismo7()))
-        self.seis.clicked.connect(lambda: self.retorno_visor(algarismo6()))
-        self.cinco.clicked.connect(lambda: self.retorno_visor(algarismo5()))
-        self.quatro.clicked.connect(lambda: self.retorno_visor(algarismo4()))
-        self.tres.clicked.connect(lambda: self.retorno_visor(algarismo3()))
-        self.dois.clicked.connect(lambda: self.retorno_visor(algarismo2()))
-        self.um.clicked.connect(lambda: self.retorno_visor(algarismo1()))
-        self.pushButton_17.clicked.connect(lambda: self.retorno_visor(algarismo0()))
+        self.nove.clicked.connect(lambda: self.retorno(algarismo9()))
+        self.oito.clicked.connect(lambda:self.retorno(algarismo8()))
+        self.sete.clicked.connect(lambda: self.retorno(algarismo7()))
+        self.seis.clicked.connect(lambda: self.retorno(algarismo6()))
+        self.cinco.clicked.connect(lambda: self.retorno(algarismo5()))
+        self.quatro.clicked.connect(lambda: self.retorno(algarismo4()))
+        self.tres.clicked.connect(lambda: self.retorno(algarismo3()))
+        self.dois.clicked.connect(lambda: self.retorno(algarismo2()))
+        self.um.clicked.connect(lambda: self.retorno(algarismo1()))
+        self.pushButton_17.clicked.connect(lambda: self.retorno(algarismo0()))
 
         self.igual.clicked.connect(lambda:self.retorno())
 
@@ -155,8 +157,12 @@ class Ui_MainWindow(object):
         self.virgula.setText(_translate("MainWindow", ","))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
 
-    def retorno(self):
-        print(self.Visor.value())
+    def retorno(self,n):
+        x=(str(valor_digitado(int(self.Visor.value()))))
+        x=x+str(n)
+        self.retorno_visor(x)
+        print(x)
+        return ((valor_digitado(self.Visor.value())))
 
 if __name__ == "__main__":
     import sys

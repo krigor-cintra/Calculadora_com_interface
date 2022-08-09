@@ -1,3 +1,4 @@
+from calculadora import *
 def algarismo0():
     return 0
 
