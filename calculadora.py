@@ -123,6 +123,7 @@ class Ui_MainWindow(object):
         self.um.clicked.connect(lambda: self.retorno(algarismo1()))
         self.zero.clicked.connect(lambda: self.retorno(algarismo0()))
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
+        self.pushButton_20.clicked.connect(lambda: self.retorno(sinaldesoma()))
 
 
         self.igual.clicked.connect(lambda:self.atc_igual())
@@ -175,7 +176,7 @@ class Ui_MainWindow(object):
         self.valordereserva=valor1
 
     def atc_igual(self):
-        
+        print(self.historico, self.valordereserva)
         valor1=self.retorno(" ")
         self.valordereserva=str(valor1)
         self.historico=str(self.historico)+str(self.valordereserva)+"\n"
