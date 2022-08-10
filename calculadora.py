@@ -7,6 +7,8 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+
+import tratamento_dados
 from botoes import *
 from tratamento_dados import valor_digitado
 
@@ -178,8 +180,7 @@ class Ui_MainWindow(object):
         self.valordereserva=valor1
 
     def atc_igual(self):
-        valor1=self.retorno(" ")
-        self.valordereserva=str(valor1)
+        tratamento_dados.fazer_operacao(self.valordereserva)
         self.historico=str(self.historico)+str(self.valordereserva)+"\n"
         self.retorno_visor(0)
 
@@ -191,14 +192,20 @@ class Ui_MainWindow(object):
         return lambda: self.valordereserva
 
     def somar(self):
-        if (self.realizar_operação()==0):
-            valor1 = self.retorno(" ")
+        if (self.realizar_operação()==True):
+            self.tipodeoperaçao=1
+            valor1 = self.retorno("")
             self.valordereserva = str(valor1)
-            self.valordereserva = self.valordereserva + " + "
+            self.valordereserva = str(self.valordereserva)+"+"
+            print(self.valordereserva)
             self.retorno_visor(0)
             return self.valordereserva
         else:
+            self.tipodeoperaçao = 0
+            self.valordereserva =self.valordereserva + self.retorno(" ")
+
             print(self.valordereserva)
+            self.retorno_visor(0)
 
     def print_historico(self):
         print(self.historico)
