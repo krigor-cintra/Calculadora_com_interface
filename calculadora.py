@@ -13,6 +13,8 @@ from tratamento_dados import valor_digitado
 class Ui_MainWindow(object):
     valordereserva = ""
     historico= ""
+    visor=" "
+    tipodeoperaçao=0
     def setupUi(self, MainWindow):
 
         MainWindow.setObjectName("MainWindow")
@@ -123,11 +125,11 @@ class Ui_MainWindow(object):
         self.um.clicked.connect(lambda: self.retorno(algarismo1()))
         self.zero.clicked.connect(lambda: self.retorno(algarismo0()))
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
-        self.pushButton_20.clicked.connect(lambda: self.retorno(sinaldesoma()))
+        self.Soma.clicked.connect(lambda: self.somar())
 
 
         self.igual.clicked.connect(lambda:self.atc_igual())
-
+        self.pushButton_20.clicked.connect(lambda: self.print_historico())
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -176,14 +178,37 @@ class Ui_MainWindow(object):
         self.valordereserva=valor1
 
     def atc_igual(self):
-        print(self.historico, self.valordereserva)
         valor1=self.retorno(" ")
         self.valordereserva=str(valor1)
         self.historico=str(self.historico)+str(self.valordereserva)+"\n"
         self.retorno_visor(0)
 
 
+    def getvalor_de_reserva(self):
+        return self.valordereserva
+    def setvalor_de_reserva(self,n):
+        self.valordereserva=n
+        return lambda: self.valordereserva
 
+    def somar(self):
+        if (self.realizar_operação()==0):
+            valor1 = self.retorno(" ")
+            self.valordereserva = str(valor1)
+            self.valordereserva = self.valordereserva + " + "
+            self.retorno_visor(0)
+            return self.valordereserva
+        else:
+            print(self.valordereserva)
+
+    def print_historico(self):
+        print(self.historico)
+        print(self.valordereserva)
+
+    def realizar_operação(self):
+        if (self.tipodeoperaçao == 0):
+            return True
+        else:
+            return False
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

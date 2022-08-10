@@ -1,4 +1,4 @@
-from calculadora import *
+
 def algarismo0():
     return 0
 
@@ -30,7 +30,7 @@ def algarismo9():
     return 9
 
 def sinaldesoma():
-    return "+"
+    return
 
 def sinaldesubtracao():
     return "-"
