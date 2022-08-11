@@ -180,8 +180,11 @@ class Ui_MainWindow(object):
         self.valordereserva=valor1
 
     def atc_igual(self):
-        tratamento_dados.fazer_operacao(self.valordereserva)
+        self.tipodeoperaçao = 0
+        self.valordereserva = self.valordereserva + self.retorno("")
+
         self.historico=str(self.historico)+str(self.valordereserva)+"\n"
+        print(self.historico, self.valordereserva)
         self.retorno_visor(0)
 
 
