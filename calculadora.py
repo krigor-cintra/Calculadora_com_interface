@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
     def atc_igual(self):
         self.tipodeoperaçao = 0
         self.valordereserva = self.valordereserva + self.retorno("")
-        self.historico=str(self.historico)+str(self.valordereserva)+" "
+        self.historico=str(self.historico)+str(self.valordereserva)+"\n"
         print(self.historico, self.valordereserva)
         self.retorno_visor(Str_somar(self.valordereserva))
 
@@ -210,7 +210,6 @@ class Ui_MainWindow(object):
 
     def print_historico(self):
         print(self.historico)
-        print(self.valordereserva)
 
     def realizar_operação(self):
         if (self.tipodeoperaçao == 0):

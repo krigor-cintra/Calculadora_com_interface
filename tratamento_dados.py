@@ -1,7 +1,7 @@
 from operacao import *
 
 def valor_digitado(valor):
-    return str(valor
+    return str(valor)
 
 def Str_somar(str_operacao):
     valor = str_operacao.split("+")
