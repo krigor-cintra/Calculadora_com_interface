@@ -8,9 +8,10 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-import tratamento_dados
+from tratamento_dados import fazer_operacao
 from botoes import *
 from tratamento_dados import valor_digitado
+
 
 class Ui_MainWindow(object):
     valordereserva = ""
@@ -183,9 +184,9 @@ class Ui_MainWindow(object):
         self.tipodeoperaçao = 0
         self.valordereserva = self.valordereserva + self.retorno("")
 
-        self.historico=str(self.historico)+str(self.valordereserva)+"\n"
+        self.historico=str(self.historico)+str(self.valordereserva)+" "
         print(self.historico, self.valordereserva)
-        self.retorno_visor(0)
+        self.retorno_visor(fazer_operacao(self.valordereserva))
 
 
     def getvalor_de_reserva(self):
@@ -206,8 +207,6 @@ class Ui_MainWindow(object):
         else:
             self.tipodeoperaçao = 0
             self.valordereserva =self.valordereserva + self.retorno(" ")
-
-            print(self.valordereserva)
             self.retorno_visor(0)
 
     def print_historico(self):
