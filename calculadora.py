@@ -8,7 +8,7 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-from tratamento_dados import fazer_operacao
+from tratamento_dados import Str_somar
 from botoes import *
 from tratamento_dados import valor_digitado
 
@@ -183,10 +183,9 @@ class Ui_MainWindow(object):
     def atc_igual(self):
         self.tipodeoperaçao = 0
         self.valordereserva = self.valordereserva + self.retorno("")
-
         self.historico=str(self.historico)+str(self.valordereserva)+" "
         print(self.historico, self.valordereserva)
-        self.retorno_visor(fazer_operacao(self.valordereserva))
+        self.retorno_visor(Str_somar(self.valordereserva))
 
 
     def getvalor_de_reserva(self):
@@ -218,6 +217,7 @@ class Ui_MainWindow(object):
             return True
         else:
             return False
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
