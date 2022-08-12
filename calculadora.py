@@ -170,7 +170,6 @@ class Ui_MainWindow(object):
         x=(str(valor_digitado(int(self.Visor.value()))))
         x=x+str(n)
         self.retorno_visor(x)
-        #print(x) /*Utilizado para ver como esta sendo o output dos dados*/
         return ((valor_digitado(self.Visor.value())))
 
     def somatoria(self):
@@ -184,7 +183,7 @@ class Ui_MainWindow(object):
         self.tipodeoperaçao = 0
         self.valordereserva = self.valordereserva + self.retorno("")
         self.historico=str(self.historico)+str(self.valordereserva)+"\n"
-        print(self.historico, self.valordereserva)
+
         self.retorno_visor(Str_somar(self.valordereserva))
 
 
