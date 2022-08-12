@@ -173,11 +173,12 @@ class Ui_MainWindow(object):
         return ((valor_digitado(self.Visor.value())))
 
     def somatoria(self):
-        print(self.valordereserva)
-        valor1=self.retorno(" ")
-        print(valor1)
+        self.pegar_dados_visor()
         self.retorno_visor(0)
-        self.valordereserva=valor1
+    def pegar_dados_visor(self):
+        valor1 = self.retorno("")
+        self.valordereserva = valor1
+
 
     def atc_igual(self):
         self.tipodeoperaçao = 0
