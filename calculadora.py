@@ -172,21 +172,17 @@ class Ui_MainWindow(object):
         self.retorno_visor(x)
         return ((valor_digitado(self.Visor.value())))
 
-    def somatoria(self):
-        self.pegar_dados_visor()
-        self.retorno_visor(0)
     def pegar_dados_visor(self):
-        valor1 = self.retorno("")
-        self.valordereserva = valor1
-
+        return self.retorno("")
 
     def atc_igual(self):
         self.tipodeoperaçao = 0
-        self.valordereserva = self.valordereserva + self.retorno("")
-        self.historico=str(self.historico)+str(self.valordereserva)+"\n"
-
+        self.valordereserva = self.valordereserva + self.pegar_dados_visor()
+        self.pegar_historico()
         self.retorno_visor(Str_somar(self.valordereserva))
 
+    def pegar_historico(self):
+        self.historico = str(self.historico) + str(self.valordereserva) + "\n"
 
     def getvalor_de_reserva(self):
         return self.valordereserva
@@ -197,7 +193,7 @@ class Ui_MainWindow(object):
     def somar(self):
         if (self.realizar_operação()==True):
             self.tipodeoperaçao=1
-            valor1 = self.retorno("")
+            valor1 = self.pegar_dados_visor()
             self.valordereserva = str(valor1)
             self.valordereserva = str(self.valordereserva)+"+"
             print(self.valordereserva)
@@ -205,7 +201,7 @@ class Ui_MainWindow(object):
             return self.valordereserva
         else:
             self.tipodeoperaçao = 0
-            self.valordereserva =self.valordereserva + self.retorno(" ")
+            self.valordereserva =self.valordereserva + self.pegar_dados_visor()
             self.retorno_visor(0)
 
     def print_historico(self):
