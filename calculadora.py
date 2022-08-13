@@ -10,7 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 from tratamento_dados import Str_somar
 from botoes import *
-from tratamento_dados import valor_digitado
+from tratamento_dados import valor_digitado,apagar
 
 
 class Ui_MainWindow(object):
@@ -129,6 +129,7 @@ class Ui_MainWindow(object):
         self.zero.clicked.connect(lambda: self.retorno(algarismo0()))
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
         self.Soma.clicked.connect(lambda: self.somar())
+        self.Apagar.clicked.connect(lambda: self.apagar_dados())
 
 
         self.igual.clicked.connect(lambda:self.atc_igual())
@@ -213,7 +214,11 @@ class Ui_MainWindow(object):
             return False
 
     def apagar_dados(self):
-        valor1 = self.pegar_dados_visor()
+        valor=((self.pegar_dados_visor()))
+        valor1= apagar(valor)
+
+        self.retorno_visor(lambda: if (valor1!=""):return valor1 else: return 0)
+
 
 if __name__ == "__main__":
     import sys
