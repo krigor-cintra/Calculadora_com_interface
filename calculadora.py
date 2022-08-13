@@ -193,8 +193,7 @@ class Ui_MainWindow(object):
     def somar(self):
         if (self.realizar_operação()==True):
             self.tipodeoperaçao=1
-            valor1 = self.pegar_dados_visor()
-            self.valordereserva = str(valor1)
+            self.valordereserva = str(self.pegar_dados_visor())
             self.valordereserva = str(self.valordereserva)+"+"
             print(self.valordereserva)
             self.retorno_visor(0)
@@ -212,6 +211,9 @@ class Ui_MainWindow(object):
             return True
         else:
             return False
+
+    def apagar_dados(self):
+        valor1 = self.pegar_dados_visor()
 
 if __name__ == "__main__":
     import sys
