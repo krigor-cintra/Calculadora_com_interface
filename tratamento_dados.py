@@ -11,7 +11,11 @@ def apagar(str_operacao):
     valor = list(str_operacao)
     valor.pop()
     valor1="".join(valor)
+    valor2 = (lambda valor: True if (valor == 0 or valor =="" or valor =="0") else False)
+    if (valor2(valor1) == True):
+        return 0
     return valor1
+
 
 
 
