@@ -217,7 +217,7 @@ class Ui_MainWindow(object):
         valor=((self.pegar_dados_visor()))
         valor1= apagar(valor)
 
-        self.retorno_visor(lambda: if (valor1!=""):return valor1 else: return 0)
+        self.retorno_visor()
 
 
 if __name__ == "__main__":
