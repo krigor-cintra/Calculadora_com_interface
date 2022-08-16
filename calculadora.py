@@ -140,8 +140,6 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retorno_visor(self,n):
-        self.Visor.display(n)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -166,6 +164,9 @@ class Ui_MainWindow(object):
         self.igual.setText(_translate("MainWindow", "="))
         self.virgula.setText(_translate("MainWindow", ","))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
+
+    def retorno_visor(self,n):
+        self.Visor.display(n)
 
     def retorno(self,n):
         x=(str(valor_digitado(int(self.Visor.value()))))
@@ -202,7 +203,7 @@ class Ui_MainWindow(object):
         else:
             self.tipodeoperaçao = 0
             self.valordereserva =self.valordereserva + self.pegar_dados_visor()
-            self.retorno_visor(0)
+            self.retorno_visor(Str_somar(self.valordereserva))
 
     def print_historico(self):
         print(self.historico)
