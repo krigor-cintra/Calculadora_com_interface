@@ -8,7 +8,7 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-from tratamento_dados import Str_somar
+from tratamento_dados import Operação_str
 from botoes import *
 from tratamento_dados import valor_digitado,apagar
 
@@ -181,7 +181,7 @@ class Ui_MainWindow(object):
         self.tipodeoperaçao = 0
         self.valordereserva = self.valordereserva + self.pegar_dados_visor()
         self.pegar_historico()
-        self.retorno_visor(Str_somar(self.valordereserva))
+        self.retorno_visor(Operação_str(self.valordereserva))
 
     def pegar_historico(self):
         self.historico = str(self.historico) + str(self.valordereserva) + "\n"
@@ -204,7 +204,7 @@ class Ui_MainWindow(object):
         else:
             self.tipodeoperaçao = 0
             self.valordereserva =self.valordereserva + self.pegar_dados_visor()
-            self.retorno_visor(Str_somar(self.valordereserva))
+            self.retorno_visor(Operação_str(self.valordereserva))
 
     def subtraicao(self):
         if (self.realizar_operação() == True):
@@ -217,7 +217,7 @@ class Ui_MainWindow(object):
         else:
             self.tipodeoperaçao = 0
             self.valordereserva = self.valordereserva + self.pegar_dados_visor()
-            self.retorno_visor(Str_somar(self.valordereserva))
+            self.retorno_visor(Operação_str(self.valordereserva))
 
     def print_historico(self):
         print(self.historico)
