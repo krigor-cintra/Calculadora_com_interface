@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.Limpar.clicked.connect(lambda: self.retorno_visor(0))
         self.Soma.clicked.connect(lambda: self.somar())
         self.Apagar.clicked.connect(lambda: self.apagar_dados())
-
+        self.dividir.clicked.connect(lambda: self.divisao())
         self.Multiplicar.clicked.connect(lambda: self.multiplicacao())
         self.subtrair.clicked.connect(lambda: self.subtraicao())
         self.igual.clicked.connect(lambda:self.atc_igual())
@@ -237,6 +237,22 @@ class Ui_MainWindow(object):
             self.retorno_visor(Operação_str(self.valordereserva))
             self.pegar_historico()
             self.multiplicacao()
+
+    def divisao(self):
+        if (self.realizar_operação() == True):
+            self.tipodeoperaçao = 1
+            self.valordereserva = str(self.pegar_dados_visor())
+            self.valordereserva = str(self.valordereserva) + "/"
+            print(self.valordereserva)
+            self.retorno_visor(0)
+            return self.valordereserva
+        else:
+            self.tipodeoperaçao = 0
+            self.valordereserva = self.valordereserva + self.pegar_dados_visor()
+            self.retorno_visor(Operação_str(self.valordereserva))
+            self.pegar_historico()
+            self.divisao()
+
     def print_historico(self):
         print(self.historico)
 
