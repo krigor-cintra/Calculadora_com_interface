@@ -198,13 +198,14 @@ class Ui_MainWindow(object):
             self.tipodeoperaçao=1
             self.valordereserva = str(self.pegar_dados_visor())
             self.valordereserva = str(self.valordereserva)+"+"
-            print(self.valordereserva)
             self.retorno_visor(0)
             return self.valordereserva
         else:
             self.tipodeoperaçao = 0
             self.valordereserva =self.valordereserva + self.pegar_dados_visor()
             self.retorno_visor(Operação_str(self.valordereserva))
+            self.pegar_historico()
+            self.somar()
 
     def subtraicao(self):
         if (self.realizar_operação() == True):
@@ -218,6 +219,8 @@ class Ui_MainWindow(object):
             self.tipodeoperaçao = 0
             self.valordereserva = self.valordereserva + self.pegar_dados_visor()
             self.retorno_visor(Operação_str(self.valordereserva))
+            self.pegar_historico()
+            self.subtraicao()
 
     def print_historico(self):
         print(self.historico)
