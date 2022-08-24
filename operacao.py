@@ -13,7 +13,8 @@ def multiplicar(valor1, valor2):
 def divisao(valor1,valor2):
     produto=valor1/valor2
     return produto
-
+def porcentagem(valor1, valor2):
+    
 def virugla():
     return ","
 
