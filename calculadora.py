@@ -170,7 +170,7 @@ class Ui_MainWindow(object):
         self.Visor.display(n)
 
     def retorno(self,n):
-        x=(str(valor_digitado(int(self.Visor.value()))))
+        x=(str(valor_digitado(float(self.Visor.value()))))
         x=x+str(n)
         self.retorno_visor(x)
         return ((valor_digitado(self.Visor.value())))
