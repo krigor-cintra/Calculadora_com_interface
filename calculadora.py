@@ -10,7 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 from tratamento_dados import Operação_str
 from botoes import *
-from tratamento_dados import valor_digitado,apagar
+from tratamento_dados import valor_digitado,apagar,função_definir_zero
 
 
 class Ui_MainWindow(object):
@@ -171,12 +171,16 @@ class Ui_MainWindow(object):
 
     def retorno(self,n):
         x=(str(valor_digitado(float(self.Visor.value()))))
-        x=x+str(n)
+        if (função_definir_zero(x)==True):
+            x="0"+str(n)
+        else:
+            x=x+str(n)
         self.retorno_visor(x)
         return ((valor_digitado(self.Visor.value())))
 
     def pegar_dados_visor(self):
         return self.retorno("")
+
 
     def atc_igual(self):
         self.tipodeoperaçao = 0

@@ -32,9 +32,12 @@ def apagar(str_operacao):
         return 0
     return valor1
 
+def função_definir_zero(dado_str):
+    if (dado_str == "0.0"):
+
+        return True
 
 
-
-
+print(função_definir_zero("0.0"))
 
 
