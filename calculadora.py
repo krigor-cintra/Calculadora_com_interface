@@ -172,10 +172,10 @@ class Ui_MainWindow(object):
     def retorno(self,n):
         x=(str(valor_digitado(float(self.Visor.value()))))
         if (função_definir_zero(x)==True):
-            x="0"+str(n)
+            x=""+str(n)
         else:
-            x=x+str(n)
-        self.retorno_visor(x)
+            x=str(x)+str(n)
+        self.retorno_visor(str(x))
         return ((valor_digitado(self.Visor.value())))
 
     def pegar_dados_visor(self):
@@ -236,7 +236,6 @@ class Ui_MainWindow(object):
         else:
             self.tipodeoperaçao = 0
             self.valordereserva = self.valordereserva + self.pegar_dados_visor()
-
             self.retorno_visor(Operação_str(self.valordereserva))
             self.pegar_historico()
             self.multiplicacao()
@@ -261,6 +260,7 @@ class Ui_MainWindow(object):
 
     def realizar_operação(self):
         if (self.tipodeoperaçao == 0):
+
             return True
         else:
             return False

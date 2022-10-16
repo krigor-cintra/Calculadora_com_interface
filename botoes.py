@@ -1,4 +1,3 @@
-
 def algarismo0():
     return 0
 
@@ -37,8 +36,6 @@ def sinaldesubtracao():
 
 def sinaldedivisao():
     return "/"
-
-
 
 def sinaldemultiplicacao():
     return "*"

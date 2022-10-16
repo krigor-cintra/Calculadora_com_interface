@@ -27,14 +27,13 @@ def apagar(str_operacao):
     valor = list(str_operacao)
     valor.pop()
     valor1="".join(valor)
-    valor2 = (lambda valor: True if (valor == 0 or valor =="" or valor =="0") else False)
+    valor2 = (lambda valor: True if (valor == 0 or valor =="" or valor =="0.0") else False)
     if (valor2(valor1) == True):
         return 0
     return valor1
 
 def função_definir_zero(dado_str):
     if (dado_str == "0.0"):
-
         return True
 
 
