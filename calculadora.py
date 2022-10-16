@@ -19,7 +19,6 @@ class Ui_MainWindow(object):
     visor=" "
     tipodeoperaçao=0
     def setupUi(self, MainWindow):
-
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(345, 512)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -163,14 +162,14 @@ class Ui_MainWindow(object):
         self.quatro.setText(_translate("MainWindow", "4"))
         self.zero.setText(_translate("MainWindow", "0"))
         self.igual.setText(_translate("MainWindow", "="))
-        self.virgula.setText(_translate("MainWindow", ","))
+        self.virgula.setText(_translate("MainWindow", "."))
         self.pushButton_20.setText(_translate("MainWindow", "?"))
 
     def retorno_visor(self,n):
         self.Visor.display(n)
 
     def retorno(self,n):
-        x=(str(valor_digitado(float(self.Visor.value()))))
+        x=(str(valor_digitado(float(self.Visor.value())))).rstrip('0').rstrip('.')
         if (função_definir_zero(x)==True):
             x=""+str(n)
         else:

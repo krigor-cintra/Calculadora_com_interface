@@ -33,7 +33,7 @@ def apagar(str_operacao):
     return valor1
 
 def função_definir_zero(dado_str):
-    if (dado_str == "0.0"):
+    if (dado_str == "0.0" or dado_str == "0" or dado_str == "0,0"):
         return True
 
 
