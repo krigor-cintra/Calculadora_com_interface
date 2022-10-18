@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
         self.subtrair.clicked.connect(lambda: self.subtraicao())
         self.igual.clicked.connect(lambda:self.atc_igual())
         self.pushButton_20.clicked.connect(lambda: self.print_historico())
-
+        self.virgula.clicked.connect(lambda:self.nvirgula())
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -169,7 +169,8 @@ class Ui_MainWindow(object):
         self.Visor.display(n)
 
     def retorno(self,n):
-        x=(str(valor_digitado(float(self.Visor.value())))).rstrip('0').rstrip('.')
+        x=(str(valor_digitado(float(self.Visor.value()))))
+        print(x)
         if (função_definir_zero(x)==True):
             x=""+str(n)
         else:
@@ -268,7 +269,11 @@ class Ui_MainWindow(object):
         valor=((self.pegar_dados_visor()))
         valor1= apagar(valor)
         self.retorno_visor(valor1)
-
+    def nvirgula(self):
+        x = (str(valor_digitado(float(self.Visor.value())))).rstrip('0')
+        print(x)
+        self.retorno_visor((x))
+        print(x)
 
 if __name__ == "__main__":
     import sys
