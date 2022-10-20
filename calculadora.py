@@ -18,6 +18,7 @@ class Ui_MainWindow(object):
     historico= ""
     visor=" "
     tipodeoperaçao=0
+    op_virgula=False
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(345, 512)
@@ -169,8 +170,13 @@ class Ui_MainWindow(object):
         self.Visor.display(n)
 
     def retorno(self,n):
-        x=(str(valor_digitado(float(self.Visor.value()))))
-        print(x)
+        if (self.op_virgula==True):
+            self.op_virgula=False
+            x = (str(valor_digitado(float(self.Visor.value()))))
+            x=str(x).rstrip('0')+str(n)
+            self.retorno_visor(str(x))
+            return ((valor_digitado(self.Visor.value())))
+        x = (str(valor_digitado(float(self.Visor.value())))).rstrip('0').rstrip(".")
         if (função_definir_zero(x)==True):
             x=""+str(n)
         else:
@@ -270,6 +276,7 @@ class Ui_MainWindow(object):
         valor1= apagar(valor)
         self.retorno_visor(valor1)
     def nvirgula(self):
+        self.op_virgula=True
         x = (str(valor_digitado(float(self.Visor.value())))).rstrip('0')
         print(x)
         self.retorno_visor((x))
