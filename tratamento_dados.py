@@ -37,6 +37,6 @@ def função_definir_zero(dado_str):
         return True
 
 
-print(função_definir_zero("0.0"))
+
 
 
